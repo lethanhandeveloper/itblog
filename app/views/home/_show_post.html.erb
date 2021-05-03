@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Blog Post - Start Bootstrap Template</title>
+
+	
+
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<%= render "./navigation" %>
+
+	<!-- Page Content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 mt-2">
+				<% @post.each do |p| %>
+				<div class="row border my-3 p-5 shadow-sm">
+					<div class="row">
+						<div class="col-lg-2 col-sm-2 col-5">
+							<img src="<%= p.image  %>" class="img-thumbnail" width="150px">
+						</div>
+						<div class="col-lg-10 col-sm-10 col-7">
+							<h4 class="text-primary"><%=  link_to p.title, detail_path(p)  %></h4>
+							<p class="text-justify">
+								<%=   truncate(p.content, length:500)   %>
+							</p> 
+							<%=  link_to "Read more", detail_path(p), :class => "btn btn-dark"    %> 
+						</div>
+					</div>
+					<div class="row post-detail">
+						<div class="col-lg-12 col-sm-12 col-12">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<img src="https://dummyimage.com/20x20/a8a1a8/0f0f12" class="rounded-circle" width="20px"> <span>by</span> <span class="text-info"><%= p.user.username  %></span>
+								</li>
+								<li class="list-inline-item">
+									<i class="fa fa-calendar" aria-hidden="true"></i> <span>Đã đăng vào:<%= p.updated_at %></span>
+								</li>
+								<li class="list-inline-item">
+									<i class="fa fa-comment" aria-hidden="true"></i> <span class="text-info">3 Comments</span>
+								</li>
+								<li class="list-inline-item">
+									<i class="fa fa-share-square-o" aria-hidden="true"></i> <span class="text-info">39 Shares</span>
+								</li>
+								<li class="list-inline-item">
+									<i class="fa fa-tags" aria-hidden="true"></i>
+									<span>Tags:</span>
+									<span class="badge badge-dark">bootstrap 4.0</span>
+									<span class="badge badge-dark">laravel</span>
+									<span class="badge badge-dark">html</span>
+									<span class="badge badge-dark">css</span>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+				<% end %>
+			</div>
+			<%= render "./sidebar" %>
+		</div>
+
+		
+		<!-- Sidebar Widgets Column -->
+		
+		
+
+	</div>
+	<%= render "./footer" %>
+	<!-- /.row -->
+
+
+	<!-- /.container -->
+
+	<!-- Footer -->
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<div class="col-md-4">
+
+	<!-- Search Widget -->
+	<div class="card my-4">
+		<h5 class="card-header">Tìm kiếm</h5>
+		<div class="card-body">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Nhập từ khóa...">
+				<span class="input-group-append">
+					<button class="btn btn-secondary" type="button">Tìm kiếm</button>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Categories Widget -->
+	<div class="card my-4">
+		<h5 class="card-header">Danh sách danh mục</h5>
+		<div class="card-body">
+			<div class="row">
+				<% @category.each do |c| %>
+				<div class="mx-1">
+					<ul class="list-unstyled mb-1">
+						
+						<li>
+							<%= link_to c.name, home_path(c),:class => 'btn btn-info'    %>
+						</li>
+						
+					</ul>
+				</div>
+				<% end %>
+        </div>
+    </div>
+</div>
+
+<!-- Side Widget -->
+<div class="card my-4">
+	<h5 class="card-header">Side Widget</h5>
+	<div class="card-body">
+		You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+	</div>
+</div>
+
+</div>

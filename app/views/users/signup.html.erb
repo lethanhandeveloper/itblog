@@ -1,0 +1,49 @@
+
+<!------ Include the above in your HEAD tag ---------->
+
+<%= render "./navigation" %>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- <div class="alert alert-success container">
+      <strong>Đăng ký thành công!</strong>Đăng nhập ngay?
+    </div> -->
+    <h4 class="card-header text-uppercase">Đăng Ký</h4>
+    <div class="fadeIn first">
+      <img src="https://www.pinclipart.com/picdir/big/221-2217551_computer-user-clip-art.png" id="icon" alt="User Icon" class="m-3" style="width: 30%" />
+    </div>
+    
+    <!-- Login Form -->
+    <% if @user.errors.any? %>
+    <div class="alert alert-danger m-auto mb-3" style="width: 85%">
+      <strong>Đăng ký thất bại</strong>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end  %>
+    
+    <% if flash[:signupsuccess] %>
+      <div class="alert alert-success m-auto mb-3" style="width: 85%">
+        <strong class="alert alert-success mx-2">Đăng ký thành công</strong>
+      </div>
+    <% end  %>
+      
+
+    <%= form_for @user do |f|   %>
+    <%= f.text_field :username,:class => 'fadeIn second', placeholder:"Nhập tên tài khoản..." %>
+    <%= f.text_field :password, :class => 'fadeIn third', placeholder:"Nhập mật khẩu..." %>
+    <%= f.submit "Đăng ký", :class => 'fadeIn fourth' %>
+    <% end  %>
+    
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <%= link_to "Đã có tài khoản?Đăng nhập ngay", user_login_path,:class => "underlineHover" %>
+    </div>
+
+  </div>
+</div>
+<%= render "./footer" %>

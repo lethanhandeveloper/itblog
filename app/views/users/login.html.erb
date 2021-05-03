@@ -1,0 +1,28 @@
+
+<!------ Include the above in your HEAD tag ---------->
+
+<%= render "./navigation" %>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <h4 class="card-header text-uppercase">Đăng Nhập</h4>
+    <div class="fadeIn first">
+      <img src="https://www.pinclipart.com/picdir/big/221-2217551_computer-user-clip-art.png" id="icon" alt="User Icon" class="m-3" style="width: 30%" />
+    </div>
+
+    <!-- Login Form -->
+    <%= form_for @user do |f|   %>
+      <%= f.text_field :username,:class => 'fadeIn second', placeholder:"Nhập tên tài khoản..." %>
+      <%= f.text_field :password, :class => 'fadeIn third', placeholder:"Nhập mật khẩu..." %>
+      <%= f.submit "Đăng nhập", :class => 'fadeIn fourth' %>
+    <% end  %>
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <%= link_to "Chưa có tài khoản?Đăng ký ngay", user_signup_path,:class => "underlineHover" %>
+    </div>
+
+  </div>
+</div>
+<%= render "./footer" %>
